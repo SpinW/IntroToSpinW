@@ -1,0 +1,361 @@
+<section>
+    <section class="intro" id="SpinW">
+        <div class="logo-wrapper">
+            <div class="logo"><span class="visually-hidden">SpinW</span></div>
+        </div>
+    </section>
+    
+    <section class="title" id="title">
+        <div class="grid-wrapper">
+            <div class="header">
+                <!-- Remove logo--full class to only show brand mark -->
+                <div class="logo logo--full"><span class="visually-hidden">SpinW</span></div>
+            </div>
+            <div class="content">
+                <h1>Getting started with SpinW</h1>
+                <div class="description">
+                    A tutorial on how to install and get started with SpinW.
+                </div>
+            </div>
+            <div class="credit">
+                <hr/>
+                <div class="label">Presented By</div>
+                <div class="name">Simon Ward</div>
+                <div class="role">Scientific Software Developer - ESS</div>
+            </div>
+        </div>
+    </section>
+</section>
+
+<section>
+    <section class="subsection color--radiant" id="tutorial_head">
+    <div class="grid-wrapper">
+        <div class="logo"></div>
+        <h1>Installing SpinW</h1>
+        <div class="description">
+            How to get and install SpinW
+        </div>
+    </div>
+    </section>
+
+    <section class="blank" id="prerequisites">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Prerequisites</div>
+            </div>
+            <content>
+                <h2>Operating System</h2>
+                <ul><li>All modern OS's are supported</li><br></ul>
+                <h2>MATLAB</h2>
+                <ul>
+                    <li>All versions after R2014b are fully supported.</li>
+                    <li>OPTIONAL: Symbolic Toolbox</li>
+                    <li>OPTIONAL: Parallel Computing Toolbox</li>
+                    <br>
+                </ul>
+                <h2>Notes</h2>
+                <ul>
+                    <li>More memory is needed if you have more magnetic atoms</li>
+                    <li>More q-points takes longer</li>
+                    <li>Python is technically supported but will not be covered here.</li>
+                    <br>
+                </ul>
+                <p style="text-align: center"><i>Now lets install</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="install1">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Installing latest releases</div>
+            </div>
+            <content>
+                <h2>Get the code:</h2>
+                <p>SpinW is available at:<br><a href="https://www.github.com/spinw/spinw/releases/latest" target="_blank">https://www.github.com/spinw/spinw/releases/latest</a></p>
+                <br><h2>Steps:</h2>
+                <ul>
+                    <li>Unzip the archive into you preferred directory</li>
+                    <li>Open MATLAB and run <code>install_spinw</code> from inside this directory</li>
+                    <li>Verify with <code>s = spinw;</code></li>
+                    <br>
+                </ul>
+                <h2>Updating:</h2>
+                <p>I am trying to make releases 2-3 times a year. It's always nice to be on the latest code!<br>There is a self update function <code>sw_update</code><br>This retrieves and installs the package from the link above.</p>
+                <h2>Developing:</h2>
+                <p>If you want to help develop a feature and contribute, please git clone <a href="https://www.github.com/spinw/spinw/" target="_blank">https://www.github.com/spinw/spinw.git</a> and create a pull request (to development branch)</p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="install2">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Installing via MATLAB</div>
+            </div>
+            <content>
+                <h2>Using the MATLAB package</h2>
+                <p>SpinW is now a MATALB add-on and can be downloaded directly from Mathworks.</p>
+                <img src="images/MatlabAddons.png" alt="Addon in the toolbar" style="max-height: inherit">
+                <p>Then search for SpinW and hit install.</p>
+                <p>Verify with <code>s = spinw;</code></p>
+                <h2>Updating:</h2>
+                <p>Add-Ons $\rightarrow$ Check for updates $\rightarrow$ Update</p>
+                <h2>NOTE</h2>
+                <p>This version may not correspond to the <code>sw_update</code> version!</p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank" id="gettingHelp">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Getting help</div>
+            </div>
+            <content>
+
+                <h2>Function help</h2>
+                <p>For any function that starts with <code>sw_*</code> use:<br><code>help sw_*</code></p>
+
+                <h2>SpinW class methods</h2>
+                <p>for spinw class methods use: <br><code>help spinw.function_name</code>.<br>For help on plotting commands, use:<br><code>help swplot</code>.</p>
+                <h2>Online Documentation</h2>
+                <p>All help can bew found on <a href="http://www.spinw.org" target="_blank">http://www.spinw.org</a> or <a href="https://spinw.github.io/spinwdoc" target="_blank">https://spinw.github.io/spinwdoc</a></p>
+            </content>
+        </div>
+    </section>
+</section>
+
+<section>
+    <section class="subsection color--radiant" id="Example1_0">
+        <div class="grid-wrapper">
+            <div class="logo"></div>
+            <h1>Excitations on a triangular lattice</h1>
+            <div class="description">
+                Download the script here: <a href="matlab/sw_tutorial_01.m" style="color: white"><code>tutorial_1.m</code></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="subsection color--light" id="triK_OneThird">
+        <div class="grid-wrapper">
+            <div class="logo"></div>
+            <h1>$k=[1\,1\,0]/3$ magnetic structure</h1>
+            <div class="description">
+                Let's try this with a $k=[1\,1\,0]/3$ magnetic structure
+            </div>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example1_1">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Creating the lattice</div>
+            </div>
+            <content>
+                <h2>Creating the lattice</h2>
+                <figure class="code">
+                    <pre><code class="matlab">tri = spinw;
+tri.genlattice('lat_const',[3 3 4],'angled',[90 90 120])
+plot(tri)</code></pre>
+                </figure>
+                <p>We have:</p>
+                <ul>
+                    <li>Created a SpinW object</li>
+                    <li>Generated a lattice of $a = 3\unicode{x212B}$, $b = 3\unicode{x212B}$, $c = 4\unicode{x212B}$ and $\alpha = \beta = 90^\circ$, $\gamma = 120^\circ$</li>
+                </ul>
+                <p>In the plot window, you can zoom with the mouse wheel, pan by pressing the Ctrl button while dragging. Change the plot range and view direction by pressing the corresponding button on the top.</p>
+                <h3>Questions:</h3>
+                <p><i>What is the default symmetry and what does it mean?</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example1_2">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Adding atoms</div>
+            </div>
+            <content>
+                <h2>Adding atoms</h2>
+                <figure class="code">
+                    <pre><code class="matlab">tri.addatom('r',[0 0 0],'S',3/2,'label','MCr3')
+plot(tri)</code></pre>
+                </figure>
+                <p>We have added an magnetic Cr$^{3+}$ at position $[0, 0, 0]$ with spin $S = 3/2$</p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example1_3">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Spin Hamiltonian</div>
+            </div>
+            <content>
+                <h2>Creating the Spin-Hamiltonian</h2>
+                <p>We create an antiferromagnetic first neighbor Hamiltonian plus easy plane single ion anisotropy</p>
+                <figure class="code">
+                    <pre><code class="matlab">A0 = -0.1;
+tri.addmatrix('label','J1','value',1)
+tri.addmatrix('label','A','value',[0 0 0;0 0 0;0 0 A0])
+
+tri.gencoupling
+
+tri.addcoupling('mat','J1','bond',1)
+tri.addaniso('A')
+
+plot(tri,'range',[3 3 1/2],'cellMode','inside')</code></pre>
+                </figure>
+                <p>Red ellipsoids represent the single ion anistropy on the plot (equienergetic surface)</p>
+                <h3>Questions:</h3>
+                <p><i>What have we done in each code part?<br>Examine the plot and test different values of
+                    <code>A0</code> with different signs</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example1_4">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Magnetic structure</div>
+            </div>
+            <content>
+                <h2>Creating the magnetic structure:</h2>
+                <p>We have seen the ground state magnetic structure of the above Hamltonian is a spiral, with propagation vector of $(1/3,1/3,0)$.<br> We define the plane of the spiral as the $ab$ plane</p>
+                <figure class="code">
+                    <pre><code class="matlab">tri.genmagstr('mode', 'helical', 'S', [1;0;0], 'k',[1/3 1/3 0], 'n', [0 0 1], 'nExt', [1 1 1])
+plot(tri, 'range', [3 3 1/2], 'cellMode', 'inside', 'magColor', 'red')</code></pre>
+                </figure>
+                <p>Careful: the given spin vector is column vector!</p>
+                <h3>Questions:</h3>
+                <p><i>What are the angles between nearest neighbor moments?</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example1_5">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Spin wave dispersion</div>
+            </div>
+            <content>
+                <h2>Calculating the spin wave dispersion</h2>
+                <p>We calculate the spin wave dispersion along the $(H,H,0)$ high symmetry direction</p>
+                <figure class="code">
+                    <pre><code class="matlab">spec = tri.spinwave({[0 0 0] [1 1 0] 500}, 'hermit', false);
+figure
+sw_plotspec(spec, 'mode', 'disp', 'imag', true, 'colormap', [0 0 0], 'colorbar', false)
+axis([0 1 0 5])</code></pre>
+                </figure>
+                <br>
+                <h3>Questions:</h3>
+                <p><i>How many number of modes are there and why?<br>What does the red line mean?<br>Did you got any warning?</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example1_6">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Spin-Spin correlation functions</div>
+            </div>
+            <content>
+                <h2>Calculating the spin-spin correlations</h2>
+                <p>The spin-spin correlations are already calculated, however it contains 9 numbers per Q-point per mode. It is not possible to show this on a single plot. But:</p>
+                <ol>
+                    <li>we can calculate the neutron scattering cross section</li>
+                    <li>we can select one of the components $S^{\alpha\beta}(\mathbf{Q},\omega)$</li>
+                    <li>we can sum up the diagonal $S^{\alpha\alpha}(\mathbf{Q},\omega)$</li>
+                </ol>
+                <figure class="code">
+                    <div id="edit" contenteditable="true">
+                    <pre><code class="matlab" id="codeblock">spec = sw_egrid(spec, 'component', {'Sxx+Syy' 'Szz'}, 'Evect', 0:0.01:5);
+% Try other components!
+figure
+sw_plotspec(spec,'mode','color','dE',0.2,'imag',false)
+axis([0 1 0 5.5])
+caxis([0 3])</code></pre></div>
+                </figure>
+                <br>
+                <h3>Questions:</h3>
+                <p><i>How is it related to the magnetic propagation vector?<br>Why are some modes gapped? Which correlations are gapped?<br>Why do we have <code>Szz</code>?</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="subsection color--light" id="triK_0">
+        <div class="grid-wrapper">
+            <div class="logo"></div>
+            <h1>$k=0$ magnetic structure</h1>
+            <div class="description">
+                Let's try this with a $k=0$ magnetic structure
+            </div>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example1_7">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Generating the magnetic structure</div>
+            </div>
+            <content>
+                <h2>$k = 0$ magnetic structure</h2>
+                <p>Duplicate the original object using the <code>.copy()</code> command,<br><i>Why are we using the <code>.copy()</code> command?</i></p>
+                <figure class="code">
+                    <pre><code class="matlab">triNew = copy(tri);
+triNew.genmagstr('mode','rotate','n',[0 0 1])
+phi1 = atan2(triNew.magstr.S(2,1),triNew.magstr.S(1,1));
+triNew.genmagstr('mode','rotate','n',[0 0 1],'phi',-phi1)
+plot(triNew,'range',[3 3 1])</code></pre>
+                </figure>
+                <br>
+                <p>Compare the energy per spin of the old magnetic structure and the new magnetic structure using the
+                    <code>spinw.energy()</code> function.</p>
+                <h3>Questions:</h3>
+                <p><i>How does the magnetic structures compare?<br>Are they the same?<br>Why?</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example1_8">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Spin wave dispersion</div>
+            </div>
+            <content>
+                <h2>Calculating the spin wave dispersion</h2>
+                <p>We calculate the spin wave dispersion along the $(H,H,0)$ high symmetry direction</p>
+                <figure class="code">
+                    <pre><code class="matlab">spec = triNew.spinwave({[0 0 0] [1 1 0] 500}, 'hermit', false);
+figure
+subplot(2, 1, 1)
+sw_plotspec(spec, 'mode', 'disp', 'imag', true, 'colormap', [0 0 0], 'colorbar', false)
+axis([0 1 0 5])
+spec = sw_egrid(spec, 'component', 'Sperp', 'Evect', 0:0.01:5.5);
+subplot(2, 1, 2)
+sw_plotspec(spec, 'mode', 'color', 'dE', 0.2, 'imag', false)
+axis([0 1 0 5.5])
+caxis([0 3])</code></pre>
+                </figure>
+                <br>
+                <h3>Questions:</h3>
+                <p><i>How many number of modes are there and why?<br>Is there more than before?<br>Why are there vertical lines in the dispersion?<br>Which structure is the correct one?</i></p>
+            </content>
+        </div>
+    </section>
+
+</section>
+    
