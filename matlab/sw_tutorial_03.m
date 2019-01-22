@@ -12,7 +12,7 @@ sq = sw_model('squareAF',1,0);
 
 % add some magnetic form factor
 %[~,Cf] = sw_mff('MCu2+',[],11);
-sq.addatom('label','atom_1','r',[0 0 0],'formfactn','MCu2+','S',1/2)
+sq.addatom('label','atom_1','r',[0 0 0],'formfactn',###,'S',1/2)
 
 plot(sq)
 swplot.zoom(2)
@@ -50,7 +50,7 @@ amark o
 acolor r
 plot(cut(Fact*d3dobj,[-0.1 0.1],[],[0 5]))
 acolor k
-pl(cut(d3dobj,[],[-0.1 0.1],[0 5]))
+pm(cut(d3dobj,[],[-0.1 0.1],[0 5]))
 
 % What is the intensity ratio along the two directions?
 %

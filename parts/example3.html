@@ -1,0 +1,149 @@
+<section>
+    <section class="subsection color--radiant" id="Example3_0">
+        <div class="grid-wrapper">
+            <div class="logo"></div>
+            <h1>Producing constant energy cuts of a spin wave spectrum.</h1>
+            <div class="description">
+                Download the script here: <a href="matlab/sw_tutorial_03.m" style="color: white"><code>sw_tutorial_03.m</code></a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="subsection color--light" id="sqAFheader">
+        <div class="grid-wrapper">
+            <div class="logo"></div>
+            <h1>Square lattice Heisenberg antiferromagnet</h1>
+            <div class="description">
+                This example shows how to calculate the spin wave spectrum of the square lattice Heisenberg antiferromagnet and to produce a constant energy cut of the spectrum.
+            </div>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example3_1">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Creating the lattice</div>
+            </div>
+            <content>
+                <h2>Creating the lattice</h2>
+                <p>Using sw_model, the crystal and magnetic structure are readily available. Using the 'squareAF' option, a square lattice Heisenberg Antiferromagnet  with
+                    <code>S = 1</code> and <code>J = 1</code> is created.</p>
+                <figure class="code">
+                    <pre><code class="matlab">sq = sw_model('squareAF', 1, 0);
+sq.addatom('label', 'atom_1', 'r', [0 0 0], 'formfactn', 'MCu2+', 'S', 1/2)
+plot(sq)</code></pre>
+                </figure><br>
+                <h3>Questions:</h3>
+                <p><i>Try using <code>sw_mff</code> to generate magnetic form factors for various elements</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example3_2">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Plan  the cut</div>
+            </div>
+            <content>
+
+                <h2>Plan and create a dnd object</h2>
+                <p>Make sure horace and herbert are working!<br>Create a dnd object (which was covered in the Horace workshop!) and then fill it with simulated data. Show a constant energy plot.</p>
+                <figure class="code">
+                    <pre><code class="matlab">d3dobj = d3d(sq.abc, [1 0 0 0], [-2,0.01,2], [0 1 0 0], [-2,0.01,2], [0 0 0 1], [0,0.1,10]);
+d3dobj = disp2sqw_eval(d3dobj, @sq.horace, {'component', 'Sperp', 'useMex', false, 'formfact', true}, 0.3);
+
+plot(cut(d3dobj, [], [], [3.8 4.2]))</code></pre>
+                </figure><br>
+                <h3>Questions:</h3>
+                <p><i>Why is the intensity along <code>(0 K 0)</code> weaker than along <code>(H 0 0)</code>?  Is there a problem with the form factor calculation?</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example3_3">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Compare the intensities</div>
+            </div>
+            <content>
+
+                <h2>Compare the intensities</h2>
+                <p>Let's compare the intensities along the two directions</p>
+                <figure class="code">
+                    <pre><code class="matlab">Fact = 1;
+amark o
+acolor r
+plot(cut(Fact*d3dobj, [-0.1 0.1], [], [0 5]))
+acolor k
+pm(cut(d3dobj, [], [-0.1 0.1], [0 5]))</code></pre>
+                </figure><br>
+                <h3>Questions:</h3>
+                <p><i>What is the intensity ratio along the two directions?</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example3_4">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Spin wave dispersion along a line</div>
+            </div>
+            <content>
+                <h2>Spin wave dispersion along a line</h2>
+                <p>Let's define a path in reciprocal space</p>
+                <figure class="code">
+                    <pre><code class="matlab">G = [0     0 0];
+X = [1/2   0 0];
+M = [1/2 1/2 0];
+
+spec = sq.spinwave({G X M G 301});</code></pre>
+                </figure><br>
+                <h3>Questions:</h3>
+                <p><i>Plot the spectra. How many modes are there here and what's going on?</i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example3_5">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Simple convolution</div>
+            </div>
+            <content>
+                <h2>Convolute some energy resolution</h2>
+                <figure class="code">
+                    <pre><code class="matlab">spec = sw_instrument(spec,'dE',0.5);</code></pre>
+                </figure><br>
+                <h3>Questions:</h3>
+                <p><i>Try playing around with the options in <code>sw_instrument</code></i></p>
+            </content>
+        </div>
+    </section>
+
+    <section class="blank color--dark" id="Example3_6">
+        <div class="grid-wrapper">
+            <div class="header">
+                <div class="logo"></div>
+                <div class="section">Powder averaging</div>
+            </div>
+            <content>
+                <h2>Powder averaging</h2>
+                <p>Cut out data with fixed Ei and lowest detector angle at ThetaMin = 5 deg.</p>
+                <figure class="code">
+                    <pre><code class="matlab">sq.genlattice('lat_const', [6 6 9]);
+spec = sq.powspec(linspace(0, 2, 101), 'Evect', linspace(0, 5, 501), 'nRand', 3e3, 'useMex', false, 'formfact', true);
+spec = sw_instrument(spec, 'dE', 0.2, 'Ei', 8, 'thetaMin', 5);
+sw_plotspec(spec, 'mode', 'color', 'dE', 0.2)
+caxis([0 0.2])</code></pre>
+                </figure>
+            </content>
+        </div>
+    </section>
+
+</section>
