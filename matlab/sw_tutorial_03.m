@@ -8,7 +8,7 @@
 % Using the 'squareAF' option, a square lattice Heisenberg Antiferromagnet
 % with S = 1 and J = 1 is created.
 
-sq = sw_model('squareAF',1,0);
+sq = sw_model('squareAF',1);
 
 % add some magnetic form factor
 %[~,Cf] = sw_mff('MCu2+',[],11);
